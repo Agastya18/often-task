@@ -41,6 +41,16 @@ export async function POST(request: Request) {
         price: 'Free',
         currency: 'USD'
       },
+      theme: {
+        ...validatedData.theme,
+        name: 'Default Theme', // Placeholder name
+        thumbnail: 'https://example.com/thumbnail.jpg' // Placeholder thumbnail
+      },
+      startDate: validatedData.startDate ? new Date(validatedData.startDate) : null,
+      endDate: validatedData.endDate ? new Date(validatedData.endDate) : null,
+      location: validatedData.location ?? '',
+      description: validatedData.description ?? '',
+      capacity: validatedData.capacity ?? ''
     }
     
     // Return the created invite
